@@ -170,7 +170,7 @@ public class OrderRepository {
 
         int hr = time / 60;
         int minute = time % 60;
-        ans += hr + ":" + minute;
+        ans = ans + hr + ":" + minute;
         return ans;
     }
 }
