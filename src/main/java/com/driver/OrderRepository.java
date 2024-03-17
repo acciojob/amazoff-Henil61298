@@ -156,7 +156,7 @@ public class OrderRepository {
         // your code here
         // code should return string in format HH:MM
         int max = Integer.MIN_VALUE;
-        String ans = "";
+//        String ans = "";
         int time = 0;
         HashSet<String> hs = partnerToOrderMap.get(partnerId);
 
@@ -170,7 +170,6 @@ public class OrderRepository {
 
         int hr = time / 60;
         int minute = time % 60;
-        ans = ans + hr + ":" + minute;
-        return ans;
+        return String.format("%02d:%02d", hr, minute);
     }
 }
