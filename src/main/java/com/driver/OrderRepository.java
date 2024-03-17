@@ -96,24 +96,22 @@ public class OrderRepository {
     public void deletePartner(String partnerId){
         // your code here
         // delete partner by ID
-        if (partnerId != null && partnerMap.containsKey(partnerId)) {
-            partnerMap.remove(partnerId);
-            Set<String> assignedOrders = partnerToOrderMap.remove(partnerId);
-            if (assignedOrders != null) {
-                for (String orderId : assignedOrders) {
-                    orderToPartnerMap.remove(orderId);
-                }
-            }
-        }
 //        if (partnerId != null && partnerMap.containsKey(partnerId)) {
-//            this.partnerMap.remove(partnerId);
-//            this.partnerToOrderMap.remove(partnerId);
-//            for (String s : this.orderToPartnerMap.keySet()) {
-//                if (orderToPartnerMap.get(s).equals(partnerId)) {
-//                    this.orderToPartnerMap.remove(s);
+//            partnerMap.remove(partnerId);
+//            Set<String> assignedOrders = partnerToOrderMap.remove(partnerId);
+//            if (assignedOrders != null) {
+//                for (String orderId : assignedOrders) {
+//                    orderToPartnerMap.remove(orderId);
 //                }
 //            }
 //        }
+
+        partnerMap.remove(partnerId);
+        HashSet<String> orderId = this.partnerToOrderMap.get(partnerId);
+        partnerMap.remove(partnerId);
+        for (String s : this.orderToPartnerMap.keySet()){
+            this.orderToPartnerMap.remove(s);
+        }
     }
 
     public void deleteOrder(String orderId){
