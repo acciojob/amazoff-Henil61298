@@ -137,14 +137,14 @@ public class OrderRepository {
         String[] arr = timeString.split(":");
         int hr = Integer.parseInt(arr[0]);
         int mm = Integer.parseInt(arr[1]);
-//        hr *= 60 + mm;
-        int hr1 = hr * 60 + mm;
+        hr = hr *  60 + mm;
+//        int hr1 = hr * 60 + mm;
         HashSet<String> hs = this.partnerToOrderMap.get(partnerId);
         int ans = 0;
 
         for (String s : hs){
             Order order = this.orderMap.get(s);
-            if (order != null && order.getDeliveryTime() > hr1){
+            if (order != null && order.getDeliveryTime() > hr){
                 ans++;
             }
         }
