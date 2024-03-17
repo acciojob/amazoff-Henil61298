@@ -105,7 +105,7 @@ public class OrderRepository {
 //                }
 //            }
 //        }
-        if (partnerId != null) {
+        if (partnerId != null && partnerMap.containsKey(partnerId)) {
             this.partnerMap.remove(partnerId);
             this.partnerToOrderMap.remove(partnerId);
             for (String s : this.orderToPartnerMap.keySet()) {
