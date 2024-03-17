@@ -98,11 +98,11 @@ public class OrderRepository {
         // delete partner by ID
         this.partnerMap.remove(partnerId);
 //        this.partnerToOrderMap.remove(partnerId);
-//        for (String s : this.orderToPartnerMap.keySet()){
-//            if (orderToPartnerMap.get(s).equals(partnerId)){
-//                orderToPartnerMap.remove(s);
-//            }
-//        }
+        for (String s : this.orderToPartnerMap.keySet()){
+            if (orderToPartnerMap.get(s).equals(partnerId)){
+                orderToPartnerMap.remove(s);
+            }
+        }
     }
 
     public void deleteOrder(String orderId){
